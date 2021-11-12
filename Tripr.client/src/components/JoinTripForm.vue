@@ -3,10 +3,18 @@
     <div class="row d-flex px-2">
       <div class="form-group bord">
         <label for="tripCode"></label>
-        <input class="bg-primary w-100 p-4 fs-2 font" placeholder="Trip Code.." name="tripCode" type="text" v-model="editable.jkey">
+        <input
+          class="bg-primary w-100 p-4 fs-2 font"
+          placeholder="Trip Code.."
+          name="tripCode"
+          type="text"
+          v-model="editable.jkey"
+        />
       </div>
       <div class="row d-flex justify-content-center align-content-center">
-        <button class="bg-primary joinbord p-3 w-50 mt-3 fs-2 font text-secondary">
+        <button
+          class="bg-primary joinbord p-3 w-50 mt-3 fs-2 font text-secondary"
+        >
           Join
         </button>
       </div>
@@ -30,7 +38,6 @@ export default {
           const modal = Modal.getInstance(document.getElementById('join-modal'))
           modal.hide()
         } catch (error) {
-          Pop.toast(error, 'error')
         }
       }
     }
@@ -41,31 +48,32 @@ export default {
 <style lang="scss" scoped>
 .text-shadow {
   border-radius: 3px;
-  padding: .15rem 1rem;
-  border: 3px dashed rgba(255,255,255,0.5);
-  color: #A28558;
-  text-shadow: 0px 2px 2px rgba(255,255,255,0.5);
+  padding: 0.15rem 1rem;
+  border: 3px dashed rgba(255, 255, 255, 0.5);
+  color: #a28558;
+  text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.5);
 }
 
-.bord{
+.bord {
   border-color: rgb(44, 44, 44, 0.25);
   border-style: dashed;
   border-radius: 10px;
-  padding: .3rem;}
+  padding: 0.3rem;
+}
 
-  .joinbord{
+.joinbord {
   border-color: #d3d1c8;
   border-style: dashed;
   border-radius: 10px;
   border-width: 3px;
-  }
+}
 
-  .font{
-    font-family: Museo Slab;
+.font {
+  font-family: Museo Slab;
   font-style: normal;
   font-weight: normal;
   font-size: 36px;
   line-height: 43px;
   text-align: center;
-  }
+}
 </style>
