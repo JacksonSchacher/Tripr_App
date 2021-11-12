@@ -14,10 +14,16 @@
           />
         </div>
         <p v-if="lasttrip">
-          last road trip: <span>{{ lasttrip.trip.title }}</span>
+          last trip:
+          <span
+            ><b>{{ lasttrip.trip.title }}</b></span
+          >
         </p>
         <p>
-          total trips: <span>{{ mytrips.length }}</span>
+          total trips:
+          <span
+            ><b>{{ mytrips.length }}</b></span
+          >
         </p>
         <img
           v-if="account"

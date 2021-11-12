@@ -61,7 +61,7 @@ export class MapService {
             source.data.features.push({
               id: result.id,
               type: result.type,
-              text: result.title,
+              text: result.text,
               geometry: result.geometry,
               properties: {
                 title: source.data.features.length + 1
