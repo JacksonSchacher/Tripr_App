@@ -61,9 +61,13 @@ export class MapService {
             source.data.features.push({
               id: result.id,
               type: result.type,
-              text: result.text,
-              geometry: result.geometry
+              text: result.title,
+              geometry: result.geometry,
+              properties: {
+                title: source.data.features.length + 1
+              }
             })
+            logger.log('here is the source', source)
             setTimeout(() => {
               const img = map.getCanvas().toDataURL()
               AppState.startingImg = img
@@ -133,11 +137,11 @@ export class MapService {
                 // get the title name from the source's "title" property
                 'text-field': ['get', 'title'],
                 'text-font': [
-                  'Open Sans Semibold',
+                  'Open Sans Bold',
                   'Arial Unicode MS Bold'
                 ],
-                'text-offset': [0, 1.25],
-                'text-anchor': 'top'
+                'text-offset': [0, -3.2],
+                'text-anchor': 'bottom'
               }
             })
           }

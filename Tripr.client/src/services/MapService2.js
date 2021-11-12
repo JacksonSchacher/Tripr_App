@@ -50,7 +50,10 @@ export class MapService2 {
             id: result.id,
             type: result.type,
             text: result.text,
-            geometry: result.geometry
+            geometry: result.geometry,
+            properties: {
+              title: source.data.features.length + 1
+            }
           })
           setTimeout(() => {
             const img = map.getCanvas().toDataURL()
@@ -157,8 +160,8 @@ export class MapService2 {
                   'Open Sans Semibold',
                   'Arial Unicode MS Bold'
                 ],
-                'text-offset': [0, 1.25],
-                'text-anchor': 'top'
+                'text-offset': [0, -3.2],
+                'text-anchor': 'bottom'
               }
             })
           }
