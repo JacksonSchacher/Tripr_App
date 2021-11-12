@@ -28,7 +28,7 @@ class TripsService {
     const res = await api.get('api/trips?jkey=' + jkey.toUpperCase())
     // not a client side concern
     if (!res.data) {
-      return Pop.toast('not a valid trip')
+      logger.log('not a valid trip')
     }
     // we have a trip
     const trip = res.data
@@ -40,7 +40,7 @@ class TripsService {
       logger.log('new trackedtrip', res)
       Pop.toast('You joined a trip!', 'success')
     } else {
-      Pop.toast('Sorry no trip found', 'error')
+      logger.log('cant join trip')
     }
   }
 
