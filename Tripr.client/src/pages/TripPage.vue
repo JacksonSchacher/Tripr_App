@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="d-flex mt-3 justify-content-between top-bar overlay">
+      <div class="d-flex pt-3 pb-1 justify-content-between top-bar overlay">
         <router-link class="navbar-brand d-flex" :to="{ name: 'Account' }">
           <div class="profile">
             <img class="profile-bg" src="../assets/img/user-bg.png" alt="">
@@ -17,9 +17,15 @@
               Route Details
             </h4>
           </div>
+          <p class="d-flex justify-content-end pe-2">
+            Locations: {{ trip.geo.features.length }}
+          </p>
         </div>
       </div>
-      <img :src="trip.tripImgUrl" class="map" />
+      <div>
+        <TripMapBox class="map" />
+      </div>
+      <!-- <img :src="trip.tripImgUrl" class="map" /> -->
     </div>
     <div class="row">
       <div class="bottom travelers p-0">
@@ -120,9 +126,11 @@ export default {
   padding: 0;
   z-index: 0;
   object-fit: cover;
-  height: 80vh!important;
+  height: 100vh!important;
   width: 100vw;
   position: absolute;
+  top: 0;
+  left: 0;
 }
 .profile-bg {
   width: 25vw;
@@ -218,5 +226,9 @@ h6 {
 .bottom {
   position: absolute;
   bottom: 0;
+}
+.top-bar {
+  background: #e7debe;
+  padding-top: inherit;
 }
 </style>

@@ -51,7 +51,7 @@ export default {
 <style lang="scss" scoped>
   #map {
     padding: 0;
-    min-height: 50vh;
+    min-height: 65vh;
     min-width: 50vw;
   }
 </style>

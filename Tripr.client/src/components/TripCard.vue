@@ -26,15 +26,15 @@
     </h2>
     <div :id="'flush-' + trip.id" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body rounded-10">
-        <img :src="trip.trip.tripImgUrl" class="map" />
+        <img :src="trip.trip.tripImgUrl" class="map" @click="goToTrip(trip.trip.id)" />
         <div class="d-flex justify-content-between">
-          <div class="bg-primary go-to-wrapper text-center shadow-sm py-1 mt-2">
+          <!-- <div class="bg-primary go-to-wrapper text-center shadow-sm py-1 mt-2">
             <router-link :to="{ name: 'Trip', params: { tripId: trip.trip.id } }">
               <button class="btn bordr m-0 text">
                 Go to Trip
               </button>
             </router-link>
-          </div>
+          </div> -->
           <div v-if="account.id === trip.trip.creatorId" class="bg-primary go-to-wrapper text-center shadow-sm py-1 mt-2">
             <button class="btn bordr m-0 text" @click="deleteTrip(trip.id)">
               Delete trip
@@ -52,6 +52,7 @@ import { computed } from '@vue/runtime-core'
 import { tripsService } from '../services/TripsService'
 import Pop from '../utils/Pop'
 import { AppState } from '../AppState'
+import { router } from '../router'
 export default {
   props: {
     trip: {
@@ -65,6 +66,13 @@ export default {
       async gotToPage(tripId) {
         try {
           await tripsService.goToThePage(tripId)
+        } catch (error) {
+          Pop.toast(error)
+        }
+      },
+      async goToTrip(tripId) {
+        try {
+          router.push({ name: 'Trip', params: { tripId: tripId } })
         } catch (error) {
           Pop.toast(error)
         }

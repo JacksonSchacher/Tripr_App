@@ -6,6 +6,7 @@ import { mapboxToken } from '../env'
 import { logger } from '../utils/Logger'
 import { tripsService } from './TripsService'
 import lineString from 'turf-linestring'
+import { bounds } from 'leaflet'
 
 const DrawPlugin = null
 
@@ -55,12 +56,18 @@ export class MapService2 {
               title: source.data.features.length + 1
             }
           })
+          const positions = []
+          source.data.features.forEach((l) => {
+            positions.push(Array.from(l.geometry.coordinates))
+          })
+          logger.log('Positions Coordinates: ', positions)
+          map.fitBounds(positions)
           setTimeout(() => {
             const img = map.getCanvas().toDataURL()
             const tripData = {}
             tripData.tripImgUrl = img
             tripsService.updateScreenShot(AppState.currentTrip.id, tripData)
-          }, 3000)
+          }, 2000)
           // Turf.js using to create a lineString
           // for (i=0; i<source.data.geo.features.length; i++) {
           //   let a = source.data.geo.features[i].geometry.coordinates[0]
@@ -68,11 +75,6 @@ export class MapService2 {
           // var positions = [
 
           //   ]
-          const positions = []
-          source.data.features.forEach((l) => {
-            positions.push(Array.from(l.geometry.coordinates))
-          })
-          logger.log('Positions Coordinates: ', positions)
           // const linestring = lineString(positions)
 
           // map.addLayer({
