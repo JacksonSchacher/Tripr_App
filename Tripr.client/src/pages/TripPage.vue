@@ -17,9 +17,9 @@
               Route Details
             </h4>
           </div>
-          <p v-if="trip.geo.features" class="d-flex justify-content-end pe-2">
+          <!-- <p v-if="trip.geo.features" class="d-flex justify-content-end pe-2">
             Locations: {{ trip.geo.features.length }}
-          </p>
+          </p> -->
         </div>
       </div>
       <div>
