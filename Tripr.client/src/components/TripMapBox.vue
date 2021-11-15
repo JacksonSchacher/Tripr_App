@@ -16,7 +16,7 @@ import { logger } from '../utils/Logger'
 
 export default {
   setup() {
-    let map = null
+    let map
     const mapSource = computed(() => AppState.tripMapSource)
     onMounted(() => {
       map = new MapService2()

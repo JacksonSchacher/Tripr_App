@@ -61,7 +61,7 @@ export class MapService2 {
             positions.push(Array.from(l.geometry.coordinates))
           })
           logger.log('Positions Coordinates: ', positions)
-          map.fitBounds(positions)
+          // map.fitBounds(positions.)
           setTimeout(() => {
             const img = map.getCanvas().toDataURL()
             const tripData = {}

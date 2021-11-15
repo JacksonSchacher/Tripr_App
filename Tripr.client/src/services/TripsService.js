@@ -94,6 +94,7 @@ class TripsService {
     const newData = AppState.currentTrip
     const res = await api.put(`api/trips/${tripId}`, newData)
     logger.log('deleted pin', res)
+    logger.log('Trip Map Source', AppState.tripMapSource)
   }
 }
 export const tripsService = new TripsService()
