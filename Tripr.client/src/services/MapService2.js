@@ -11,7 +11,7 @@ import { bounds } from 'leaflet'
 const DrawPlugin = null
 
 export class MapService2 {
-  constructor(container, config = { style: 'mapbox://styles/mapbox/light-v10' }) {
+  constructor(container, config = { style: 'mapbox://styles/mapbox/light-v10', type: 'geojson' }) {
     mapboxgl.accessToken = mapboxToken
     const map = new mapboxgl.Map({
       container: 'map',

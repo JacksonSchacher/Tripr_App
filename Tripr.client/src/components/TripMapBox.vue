@@ -16,7 +16,7 @@ import { logger } from '../utils/Logger'
 
 export default {
   setup() {
-    let map
+    let map = null
     const mapSource = computed(() => AppState.tripMapSource)
     onMounted(() => {
       map = new MapService2()
@@ -48,7 +48,7 @@ export default {
 
 <style lang="scss">
 #map {
-  min-height: 80vh;
+  max-height: 80vh;
 }
 .mapboxgl-ctrl-attrib-inner {
   display: none;
