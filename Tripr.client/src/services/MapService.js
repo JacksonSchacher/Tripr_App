@@ -166,12 +166,14 @@ export class MapService {
   }
 
   saveMap() {
-    const data = this.map.getSource('my-data').serialize()
+    const data = this.map.getSource('my-data', {
+      type: 'geojson'
+    }).serialize()
     logger.log('saving', data)
   }
 
   loadMapSource(dataSource) {
-    const source = this.map.getSource('my-data')
+    const source = this.map.getSource('my-data', { type: 'geojson' })
     if (!source) { return setTimeout(() => this.loadMapSource(dataSource), 100) }
     source.data = dataSource
     this.map.getSource('my-data').setData(source.data)

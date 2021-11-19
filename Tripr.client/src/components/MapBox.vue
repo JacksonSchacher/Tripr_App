@@ -40,7 +40,7 @@ export default {
 
 <style lang="scss">
 .map {
-  height: 40vh;
+  height: 55vh;
 }
 .mapboxgl-ctrl-attrib-inner {
   display: none;

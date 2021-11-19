@@ -48,7 +48,7 @@ export default {
 
 <style lang="scss">
 #map {
-  min-height: 80vh;
+  max-height: 80vh;
 }
 .mapboxgl-ctrl-attrib-inner {
   display: none;

@@ -141,7 +141,7 @@ export default {
 }
 .map {
   width: 85vw;
-  height: 45vh;
+  height: 55vh;
 }
 .create-trip-input {
   height: 3.5rem;
